@@ -34,3 +34,11 @@ Antes de começar, é necessário garantir que você tenha:
 - Certifique-se de demonstrar o funcionamento da aplicação WordPress, incluindo a tela de login.
 - A aplicação WordPress deve estar acessível através das portas 80 ou 8080.
 - Utilize um repositório Git para versionamento do código.
+
+...
+
+## Alteração da Arquitetura: Bastion Host para Instance Connect Endpoint
+
+Originalmente, a arquitetura planejada incluía um bastion host para acesso seguro às instâncias EC2. No entanto, para aumentar a segurança e simplificar o gerenciamento, a arquitetura foi modificada para usar o EC2 Instance Connect Endpoint. Isso permite o acesso SSH às instâncias EC2 sem a necessidade de gerenciar um bastion host separado.
+
+
