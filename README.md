@@ -40,6 +40,7 @@ Antes de começar, é necessário garantir que você tenha:
 ### Alteração da Arquitetura: Bastion Host para EC2 Instance Connect Endpoint
 
 Originalmente, a arquitetura planejada incluía um bastion host para acesso seguro às instâncias EC2. No entanto, para aumentar a segurança e simplificar o gerenciamento, a arquitetura foi modificada para usar o EC2 Instance Connect Endpoint. Isso permite o acesso SSH às instâncias EC2 sem a necessidade de gerenciar um bastion host separado.
-[Exemplo EC2 Instance Connect Endpoint](https://www.google.com/url?sa=i&url=https%3A%2F%2Fdev.to%2Faws-builders%2Fec2-instance-connect-endpoint-part-1-2k5n&psig=AOvVaw3FdS1_0Lo1VIy1wxtti4HM&ust=1711826606018000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOC19qqZmoUDFQAAAAAdAAAAABAR)
+Exemplo deum ambiente com EC2 Instance Connect Endpoint:
+<https://www.google.com/url?sa=i&url=https%3A%2F%2Fdev.to%2Faws-builders%2Fec2-instance-connect-endpoint-part-1-2k5n&psig=AOvVaw3FdS1_0Lo1VIy1wxtti4HM&ust=1711826606018000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOC19qqZmoUDFQAAAAAdAAAAABAR>
 
 
