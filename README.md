@@ -44,7 +44,7 @@ Originalmente, a arquitetura planejada incluía um bastion host para acesso segu
 Exemplo de um ambiente com EC2 Instance Connect Endpoint:
 
 
-<img src="https://github.com/Tri3010/CompasspbDocker/assets/94199408/cefc7b65-6435-4ea9-9820-899eeb87d882" width="500" height="425" />
+![image](https://github.com/Tri3010/CompasspbDocker/assets/94199408/7aa6cfbd-3428-4a7a-9249-6c3612948c5e)
 
 
 
