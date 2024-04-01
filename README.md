@@ -47,6 +47,16 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
 ![image](https://github.com/Tri3010/CompasspbDocker/assets/94199408/7aa6cfbd-3428-4a7a-9249-6c3612948c5e)
 
 
+## Configuração do Ambiente:
+1- # Criar VPC#
+2- # Criar NAT Gateway com Tabela de Rotas#
+3- # Criar/editar Grupos de Segurança#
+4- # Criar ec2 instance connect endpoint:#
+5- # Criar EFS:#
+6- # Criar RDS:#
+7- # Criar Load Balancer:#
+8- # Criar Modelo de execução EC2#
+
 
 
 
