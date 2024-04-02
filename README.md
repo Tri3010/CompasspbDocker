@@ -48,8 +48,16 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
 
 
 ## Configuração do Ambiente:
-1- # Criar VPC#
-2- # Criar NAT Gateway com Tabela de Rotas#
+1- Criar VPC:
+- Abra o console da Amazon VPC 
+- No painel da VPC, escolha Criar VPC.
+    Criada VPC com:
+      2 Zonas de Disponibilidade;
+      2 Subnets Publicas e 2 Subneta Privadas
+      1 Gateway NAT
+
+2- Configurado NAT Gateway com Tabelas de Rotas
+
 3- # Criar/editar Grupos de Segurança#
 4- # Criar ec2 instance connect endpoint:#
 5- # Criar EFS:#
