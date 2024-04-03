@@ -88,6 +88,14 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    Escolher Security Group criado para esse endpoint
    Seleciona Criar Endpoint.
 
+7- Criado Load Balancer:
+   Nome: LBWordPress
+   Voltado para Internet
+   Seleciona VPC
+   Mapeamento: as duas sub-nets publicas
+   Grupo de Segurança: Criado para ele
+   Verificações de integridade: HTTP:80 /install.php
+   Seleciona Criar Balanceador de carga
    
    
 
