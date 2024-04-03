@@ -50,14 +50,39 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
 ## Configuração do Ambiente:
 1- Criar VPC:
 - Abra o console da Amazon VPC 
-- No painel da VPC, escolha Criar VPC.
-    Criada VPC com:
-      2 Zonas de Disponibilidade;
-      2 Subnets Publicas e 2 Subneta Privadas
-      1 Gateway NAT
+- No painel da VPC, escolha Criar VPC e muito mais.
+    VPC: VPC_pb_docker-vpc
+    CIDR IPv4: 10.0.0.0/16
+    Zonas de Disponibilidade (AZ): 2
+    Sub-nets Publicas:2
+    Sub-nets Privadas:2 
+    Gateway NAT: VPC_pb_docker-nat-public1-us-east-1a
+    Configurado tabelas de rotas para NAT Gateway
 
-2- Configurado NAT Gateway com Tabelas de Rotas
+2- Criado EFS: EFS_pb_docker
+   Destinos de montagem: sub-nets privadas
 
+3- Criado RDS: rdswp
+   MySQL 8.0.35
+   Nome do banco de dados: db_wordpress
+
+4- Criado Instância EC2 para testes:
+   Adicionado Tags necessárias
+   AMI: Amazon Linux 2
+   Tipo: t3 small
+   Adicionada minha key pair
+   Rede: sub-net privada 1a
+   Colocado grupo de segurança adequado
+   Volume raiz: 16 GiB -gp2
+   Detalhes avançados - inserido script necessário para instalação via script de 
+   Start Instance.
+
+5- Criado EC2 Instance Connect Endpoint:
+
+   
+   
+
+   
 3- # Criar/editar Grupos de Segurança#
 4- # Criar ec2 instance connect endpoint:#
 5- # Criar EFS:#
