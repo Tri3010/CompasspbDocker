@@ -112,16 +112,17 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Tipo: t3 small
    - Adicionada minha key pair
    - Rede: sub-net privada 1a
-   - Colocado grupo de segurança adequado
+   - Grupo de segurança: SG-EC2-WebServerWP
    - Volume raiz: 16 GiB -gp2
    - Detalhes avançados - inserido script [user_data.sh](https://github.com/Tri3010/CompasspbDocker/blob/main/user_data.sh) necessário para instalação via script de Start Instance.
-
+* Testes iniciais do projeto realizados com essa instância. Ao final dessa etapa a instância foi encerrada.
+  
 6- Criado EC2 Instance Connect Endpoint:
    - No console da VPC -> Endpoints -> Criar novo endpoint
    - Nome: EC2-ICE
    - Categoria de serviço: Endpoint do EC2 Instance Connect
    - Selecionar VPC
-   - Escolher Security Group criado para esse endpoint
+   - Escolher Security Group: SG-EC2-ICE
    - Seleciona Criar Endpoint.
 
 7- Criado Load Balancer:
@@ -134,14 +135,19 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Seleciona Criar Balanceador de carga
    
    
+8- Criado Modelo de execução EC2:
+   - Nome: TemplateWebServer
+   - Selecionado: Fornecer orientação para me ajudar a configurar um modelo que eu possa usar com o Auto Scaling do EC2
+   - AMI: Amazon Linux 2
+   - Tipo: t3 small
+   - Adicionada minha key pair
+   - Configuração de Rede: Não incluir no modelo de Execução.
+   - Grupo de segurança: SG-EC2-WebServerWP
+   - Adicionado Tags necessárias
+   - Detalhes avançados - inserido script [user_data.sh](https://github.com/Tri3010/CompasspbDocker/blob/main/user_data.sh) necessário para instalação via script de Start Instance.
 
-   
-3- # Criar/editar Grupos de Segurança#
-4- # Criar ec2 instance connect endpoint:#
-5- # Criar EFS:#
-6- # Criar RDS:#
-7- # Criar Load Balancer:#
-8- # Criar Modelo de execução EC2#
+9- Criado Auto Scalling Group:
+
 
 
 
