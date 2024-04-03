@@ -52,50 +52,86 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
 1- Criar VPC:
 - Abra o console da Amazon VPC 
 - No painel da VPC, escolha Criar VPC e muito mais.
-    VPC: VPC_pb_docker-vpc
-    CIDR IPv4: 10.0.0.0/16
-    Zonas de Disponibilidade (AZ): 2
-    Sub-nets Publicas:2
-    Sub-nets Privadas:2 
-    Gateway NAT: VPC_pb_docker-nat-public1-us-east-1a
-    Configurado tabelas de rotas para NAT Gateway
+    - VPC: VPC_pb_docker-vpc
+    - CIDR IPv4: 10.0.0.0/16
+    - Zonas de Disponibilidade (AZ): 2
+    - Sub-nets Publicas:2
+    - Sub-nets Privadas:2 
+    - Gateway NAT: VPC_pb_docker-nat-public1-us-east-1a
+    - Configurado tabelas de rotas para NAT Gateway
 
 2 - Criar Grupos de Segurança para os recursos a serem usados
 
+  - EC2-WebServerWP - Inbound Rules
+   
+| Type  |	Protocol |	Port Range	|    Source   |
+| :---: |   :---:    |    :---:     |   :---:     |
+|  SSH  |   TCP      |	   22       |	SG-EC2-ICE |
+| HTTP  |	TCP	   |    80	      |   SG-LB     |
+
+
+  - EC2-ICE - Outbound Rules
+   
+| Type  |	Protocol |	Port Range	|      Source         |
+| :---: |   :---:    |    :---:     |     :---:           |
+|  SSH  |   TCP      |	   22       |	SG-EC2-WebServerWP |
+
+
+  - EFS - Inbound Rules
+   
+| Type  |	Protocol |	Port Range	|      Source         |
+| :---: |   :---:    |    :---:     |     :---:           |
+|  NFS  |   TCP      |	   2049     |	SG-EC2-WebServerWP |
+
+
+  - RDS - Inbound Rules
+   
+|     Type       |	Protocol |	Port Range	|      Source         |
+|     :---:      |   :---:    |    :---:     |     :---:           |
+|  MYSQL/Aurora  |    TCP     |	   3306     |	SG-EC2-WebServerWP |
+
+
+ - Load Balancer - Inbound Rules
+   
+|     Type       |	Protocol |	Port Range	|      Source         |
+|     :---:      |   :---:    |    :---:     |     :---:           |
+|      HTTP      |    TCP     |	    80      |	  0.0.0.0/0        |
+
+
+
 3- Criado EFS: EFS_pb_docker
-   Destinos de montagem: sub-nets privadas
+   - Destinos de montagem: sub-nets privadas
 
 4- Criado RDS: rdswp
-   MySQL 8.0.35
-   Nome do banco de dados: db_wordpress
+   - MySQL 8.0.35
+   - Nome do banco de dados: db_wordpress
 
 5- Criado Instância EC2 para testes:
-   Adicionado Tags necessárias
-   AMI: Amazon Linux 2
-   Tipo: t3 small
-   Adicionada minha key pair
-   Rede: sub-net privada 1a
-   Colocado grupo de segurança adequado
-   Volume raiz: 16 GiB -gp2
-   Detalhes avançados - inserido script necessário para instalação via script de 
-   Start Instance.
+   - Adicionado Tags necessárias
+   - AMI: Amazon Linux 2
+   - Tipo: t3 small
+   - Adicionada minha key pair
+   - Rede: sub-net privada 1a
+   - Colocado grupo de segurança adequado
+   - Volume raiz: 16 GiB -gp2
+   - Detalhes avançados - inserido script necessário para instalação via script de Start Instance.
 
 6- Criado EC2 Instance Connect Endpoint:
-   No console da VPC -> Endpoints -> Criar novo endpoint
-   Nome: EC2-ICE
-   Categoria de serviço: Endpoint do EC2 Instance Connect
-   Selecionar VPC
-   Escolher Security Group criado para esse endpoint
-   Seleciona Criar Endpoint.
+   - No console da VPC -> Endpoints -> Criar novo endpoint
+   - Nome: EC2-ICE
+   - Categoria de serviço: Endpoint do EC2 Instance Connect
+   - Selecionar VPC
+   - Escolher Security Group criado para esse endpoint
+   - Seleciona Criar Endpoint.
 
 7- Criado Load Balancer:
-   Nome: LBWordPress
-   Voltado para Internet
-   Seleciona VPC
-   Mapeamento: as duas sub-nets publicas
-   Grupo de Segurança: Criado para ele
-   Verificações de integridade: HTTP:80 /install.php
-   Seleciona Criar Balanceador de carga
+   - Nome: LBWordPress
+   - Voltado para Internet
+   - Seleciona VPC
+   - Mapeamento: as duas sub-nets publicas
+   - Grupo de Segurança: Criado para ele
+   - Verificações de integridade: HTTP:80 /wp-admin/install.php
+   - Seleciona Criar Balanceador de carga
    
    
 
