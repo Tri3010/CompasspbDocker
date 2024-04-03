@@ -114,7 +114,7 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Rede: sub-net privada 1a
    - Colocado grupo de segurança adequado
    - Volume raiz: 16 GiB -gp2
-   - Detalhes avançados - inserido script necessário para instalação via script de Start Instance.
+   - Detalhes avançados - inserido script [user_data.sh](https://github.com/Tri3010/CompasspbDocker/blob/main/user_data.sh) necessário para instalação via script de Start Instance.
 
 6- Criado EC2 Instance Connect Endpoint:
    - No console da VPC -> Endpoints -> Criar novo endpoint
