@@ -1,3 +1,4 @@
+
 # CompasspbDocker
 Repositório criado para atividade Docker do Programa de Bolsas Compass DevSecOps 2024
 
@@ -59,14 +60,16 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
     Gateway NAT: VPC_pb_docker-nat-public1-us-east-1a
     Configurado tabelas de rotas para NAT Gateway
 
-2- Criado EFS: EFS_pb_docker
+2 - Criar Grupos de Segurança para os recursos a serem usados
+
+3- Criado EFS: EFS_pb_docker
    Destinos de montagem: sub-nets privadas
 
-3- Criado RDS: rdswp
+4- Criado RDS: rdswp
    MySQL 8.0.35
    Nome do banco de dados: db_wordpress
 
-4- Criado Instância EC2 para testes:
+5- Criado Instância EC2 para testes:
    Adicionado Tags necessárias
    AMI: Amazon Linux 2
    Tipo: t3 small
@@ -77,7 +80,13 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    Detalhes avançados - inserido script necessário para instalação via script de 
    Start Instance.
 
-5- Criado EC2 Instance Connect Endpoint:
+6- Criado EC2 Instance Connect Endpoint:
+   No console da VPC -> Endpoints -> Criar novo endpoint
+   Nome: EC2-ICE
+   Categoria de serviço: Endpoint do EC2 Instance Connect
+   Selecionar VPC
+   Escolher Security Group criado para esse endpoint
+   Seleciona Criar Endpoint.
 
    
    
