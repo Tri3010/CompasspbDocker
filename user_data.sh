@@ -25,7 +25,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo mkdir /home/ec2-user/docker-compose
 # Define o conteúdo do docker-compose.yml
 sudo tee /home/ec2-user/docker-compose/docker-compose.yml >/dev/null <<EOF
-version: "3.1"
+version: "3.8"
 services:
   wordpress:
     image: wordpress:latest      
