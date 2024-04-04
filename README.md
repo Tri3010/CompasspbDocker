@@ -147,7 +147,21 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Detalhes avançados - inserido script [user_data.sh](https://github.com/Tri3010/CompasspbDocker/blob/main/user_data.sh) necessário para instalação via script de Start Instance.
 
 9- Criado Auto Scalling Group:
-
+   - Nome: ASGwordpress
+   - Escolha do Modelo de Execução: TemplateWebServer
+   - Versão do Modelo de Execução: Default (1)
+   - Rede:
+     - VPC: VPC_pb_docker-vpc
+     - Zonas de disponibilidade e sub-redes: Selecionada asduas sub-redes privadas.
+   - Balanceamento de Carga:
+     - Anexar a um balanceador de carga existente
+     - Escolher entre Classic Load Balancers: LBWordPress
+   - Tamanho do grupo:
+     - Capacidade desejada: 2
+     - Capacidade mínima: 2
+     - Capacidade máxima: 4
+   - Revisado
+   - Selecionado Criar Grupo de Auto Scalling
 
 
 
