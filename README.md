@@ -182,6 +182,9 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
   - Testando:
      - Pagina padrão do WordPress acessada corretamente.
 
+       ![Captura de Tela (10)](https://github.com/Tri3010/CompasspbDocker/assets/94199408/7337d7ba-a12e-4dd4-b588-9544f4c80f41)
+
+
 
 
 
