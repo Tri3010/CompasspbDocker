@@ -12,19 +12,6 @@ Antes de começar, é necessário garantir que você tenha:
 - Acesso à AWS CLI ou ao console da AWS.
 - Conhecimento básico de Docker e AWS.
 
-## Instruções
-
-1. **Instalação e Configuração do Docker ou Containerd no host EC2:**
-   - Crie uma instância EC2 na AWS.
-   - Utilize o script de inicialização (user_data.sh) para instalar e configurar o Docker ou Containerd na instância EC2.
-   - Certifique-se de que a instância tenha conectividade com a internet para baixar os pacotes necessários.
-
-2. **Deploy da Aplicação WordPress:**
-   - Configure um banco de dados MySQL no Amazon RDS.
-   - Crie um contêiner de aplicação WordPress.
-   - Conecte a aplicação WordPress ao banco de dados MySQL.
-
-
 
 ## Pontos de Atenção
 
