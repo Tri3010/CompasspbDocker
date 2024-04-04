@@ -1,0 +1,14 @@
+version: "3.1"
+services:
+  wordpress:
+    image: wordpress:latest      
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: rdswp.ct44e0mo48d8.us-east-1.rds.amazonaws.com
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: 12345678
+      WORDPRESS_DB_NAME: db_wordpress
+    volumes:
+      - /home/ec2-user/efs/efs-mount-point:/var/www/html
