@@ -46,6 +46,11 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
     - Sub-nets Privadas:2 
     - Gateway NAT: VPC_pb_docker-nat-public1-us-east-1a
     - Configurado tabelas de rotas para NAT Gateway
+ 
+    - Mapa da VPC:
+ 
+      -![Mapa VPC](https://github.com/Tri3010/CompasspbDocker/assets/94199408/d711579e-a555-4204-a557-bcd8104dd94a)
+
 
 2 - Criar Grupos de Segurança para os recursos a serem usados
 
@@ -89,9 +94,33 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
 3- Criado EFS: EFS_pb_docker
    - Destinos de montagem: sub-nets privadas
 
-4- Criado RDS: rdswp
-   - MySQL 8.0.35
-   - Nome do banco de dados: db_wordpress
+     EFS com os destinos de montagem:
+
+     ![EFS](https://github.com/Tri3010/CompasspbDocker/assets/94199408/d1f3d81d-2abf-4f9e-92e2-32ccc4139052)
+
+
+4- Criado RDS: 
+   - MySQL 8.0.3
+   - Identificador da Instância: rdswp
+   - Nome do usuário: admin
+   - Configurei as senhas
+   - Configuração e Armazenamento da Instância ficaram padrão
+   - Conectividade: Não se conectar a um recurso de computação do EC2 manualmente mais tarde.
+   - Nuvem privada virtual (VPC): VPC_pb_docker-vpc
+   - Grupo de sub-redes: Default (todas)
+   - Acesso Público: Não
+   - Grupo de Segurança: SG-RDS
+   - Autenticação de Banco de Dados: Autenticação de senha
+   - Configuração Adicional:
+     - Nome do banco de dados inicial: db_wordpress
+     - Restante deixado padrão
+     - Selecionado Criar Banco de Dados
+     
+
+   - Detalhes RDS
+
+     - ![RDS 2](https://github.com/Tri3010/CompasspbDocker/assets/94199408/b8b9c705-b850-4e1d-9099-99ef630b5357)
+
 
 5- Criado Par de Chaves:
 - No console do EC2;
