@@ -106,7 +106,18 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - MySQL 8.0.35
    - Nome do banco de dados: db_wordpress
 
-5- Criado Instância EC2 para testes:
+5- Criado Par de Chaves:
+- No console do EC2;
+- Selecionei "Pares de Chaves" no painel de navegação;
+- Escolhi "Criar Pares de chaves";
+- Coloquei um "Name";
+- Tipo de par de chaves foi RSA;
+- Formato de arquivo foi Pem;
+- Criado o par de chaves;
+
+- O arquivo de chave privada é baixado automaticamente pelo navegador. Arquivo salvo em local seguro.
+
+6- Criado Instância EC2 para testes:
    - Adicionado Tags necessárias
    - AMI: Amazon Linux 2
    - Tipo: t3 small
@@ -117,7 +128,7 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Detalhes avançados - inserido script [user_data.sh](https://github.com/Tri3010/CompasspbDocker/blob/main/user_data.sh) necessário para instalação via script de Start Instance.
 * Testes iniciais do projeto realizados com essa instância. Ao final dessa etapa a instância foi encerrada.
   
-6- Criado EC2 Instance Connect Endpoint:
+7- Criado EC2 Instance Connect Endpoint:
    - No console da VPC -> Endpoints -> Criar novo endpoint
    - Nome: EC2-ICE
    - Categoria de serviço: Endpoint do EC2 Instance Connect
@@ -125,7 +136,7 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Escolher Security Group: SG-EC2-ICE
    - Seleciona Criar Endpoint.
 
-7- Criado Load Balancer:
+8- Criado Load Balancer:
    - Nome: LBWordPress
    - Voltado para Internet
    - Seleciona VPC
@@ -135,7 +146,7 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Seleciona Criar Balanceador de carga
    
    
-8- Criado Modelo de execução EC2:
+9- Criado Modelo de execução EC2:
    - Nome: TemplateWebServer
    - Selecionado: Fornecer orientação para me ajudar a configurar um modelo que eu possa usar com o Auto Scaling do EC2
    - AMI: Amazon Linux 2
@@ -146,7 +157,7 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Adicionado Tags necessárias
    - Detalhes avançados - inserido script [user_data.sh](https://github.com/Tri3010/CompasspbDocker/blob/main/user_data.sh) necessário para instalação via script de Start Instance.
 
-9- Criado Auto Scalling Group:
+10- Criado Auto Scalling Group:
    - Nome: ASGwordpress
    - Escolha do Modelo de Execução: TemplateWebServer
    - Versão do Modelo de Execução: Default (1)
@@ -163,8 +174,13 @@ Exemplo de um ambiente com EC2 Instance Connect Endpoint:
    - Revisado
    - Selecionado Criar Grupo de Auto Scalling
 
-
-
+11- Instalação WordPress:
+  - Copiado DNS do Load Balancer no navegador
+  - Pagina de Idioma: Português (Brasil)
+  - Colocado dados do usuário
+  - Install WordPress
+  - Testando:
+     - Pagina padrão do WordPress acessada corretamente.
 
 
 
